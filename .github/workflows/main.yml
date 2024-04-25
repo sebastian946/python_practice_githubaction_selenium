@@ -1,0 +1,23 @@
+name: Run all test cases
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.11
+
+      - name: Install depencies
+        run: pip install -r requirements.txt
+
+      - name: Run test cases
+        run: behave
