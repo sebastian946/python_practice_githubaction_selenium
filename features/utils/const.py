@@ -4,7 +4,9 @@ from selenium.common.exceptions import NoSuchElementException, ElementClickInter
 
 class WebDriverUtils:
     def __init__(self):
-        self.driver = webdriver.Chrome()
+        self.options = webdriver.ChromeOptions()
+        self.options.add_argument('--headless')
+        self.driver = webdriver.Chrome(options=self.options)
         self.locator = {
             'id': By.ID,
             'css': By.CSS_SELECTOR,
